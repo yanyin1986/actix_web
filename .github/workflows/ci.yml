@@ -90,4 +90,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: actix_web
-          path: target/${{ matrix.target }}/release/actix_web
+          path: actix_web-${{ matrix.target }}.tar.gz
