@@ -86,10 +86,8 @@ jobs:
           ls -al
           tar czvf ../../../actix_web-${{ matrix.target }}.tar.gz actix_web
           cd -
-      - name: Publish
-        uses: softprops/action-gh-release@v1
-        # TODO: if any of the build step fails, the release should be deleted.
+          ls -al
+      - uses: actions/upload-artifact@v3
         with:
-            files: 'actix_web*'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: actix_web
+          path: target/${{ matrix.target }}/release/actix_web
